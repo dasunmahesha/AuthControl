@@ -33,12 +33,13 @@ AuthControl is a simple and secure API built for user registration and authentic
 
 2. Restore the required packages:
 
+   ```bash
     dotnet restore
 
 3. Configure your database connection string in appsettings.json.
 
 4. Run the application:
-
+   ```bash
     dotnet run
 
 
