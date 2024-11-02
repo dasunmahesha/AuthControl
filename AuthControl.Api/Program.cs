@@ -1,5 +1,6 @@
 using AuthControl.Application.Configurations;
 using AuthControl.Api.Extensions;
+using AuthControl.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,12 +31,21 @@ builder.Services.AddControllers();
 // Build the app
 var app = builder.Build();
 
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var seeder = services.GetRequiredService<DatabaseSeeder>();
+    await seeder.SeedAsync(); 
+}
+
+
 // Enable Exception Handling
 var logger = app.Services.GetRequiredService<ILogger<Program>>();
 app.ConfigureExceptionHandler(logger);
 
 
-// Configure middleware
+
 if (app.Environment.IsDevelopment())
 {
     //app.UseDeveloperExceptionPage();

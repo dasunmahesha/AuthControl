@@ -7,6 +7,6 @@ namespace AuthControl.Application.Interfaces
     public interface IUserService
     {
         Task<User> ValidateUserCredentialsAsync(string username, string password);
-        Task<bool> RegisterUserAsync(UserRegistrationDto registrationDto); // New method
+        Task<bool> RegisterUserAsync(UserRegistrationDto registrationDto); 
     }
 }

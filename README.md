@@ -42,6 +42,16 @@ AuthControl is a simple and secure API built for user registration and authentic
    ```bash
     dotnet run
 
+5. Setup databse
+
+    Create the database using the provided SQL script
+
+6. Default User
+    ```json
+    {
+      "username": "admin",
+      "password": "admin"
+    }   
 
 ## API Documentation
 
@@ -51,19 +61,24 @@ AuthControl is a simple and secure API built for user registration and authentic
 
 ### post /api/Auth/login: login.
 #### Sample Request Body for lOGIN
-{
-  "username": "string",
-  "password": "string"
-}
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+
 #### Sample responce
-{
-  "token": "eyJhbcdW1......du97laWwRT58ZI"
-}
+
+    
+    {
+      "token": "eyJhbcdW1......du97laWwRT58ZI"
+    }
 
 ### POST /api/auth/register: Register a new user (Admin role required).
 
 
 #### Sample Request Body for Registration
+    
     {
     "username": "string",
     "password": "string",
@@ -72,16 +87,18 @@ AuthControl is a simple and secure API built for user registration and authentic
     "role": 0 // 0 for user, 1 for admin, etc.
     }
 #### Sample responce
-{
-  "message": "User registered successfully"
-}
+   
+    {
+      "message": "User registered successfully"
+    }
 
 ### get /api/Auth/error: To check Error handling middleware
 #### Sample responce
-{
-  "StatusCode": 500,
-  "Message": "Internal Server Error."
-}
+   
+    {
+      "StatusCode": 500,
+      "Message": "Internal Server Error."
+    }
 
 
 ## Author
